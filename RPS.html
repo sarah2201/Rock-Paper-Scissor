@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock-paper-scissor</title>
+  </head>
+  <body>
+    <button
+      onclick=" 
+        randomNumber=Math.random();
+
+
+        if(randomNumber>=0 && randomNumber< 1/3){
+         compDecision = 'Rock';
+         console.log('computer decision is Rock');
+            
+        }
+        else if(randomNumber>=1/3 && randomNumber<=2/3)
+        {
+            compDecision='Paper';
+            console.log('computer decision is Paper');
+        }
+        else if(randomNumber>=2/3 && randomNumber<1)
+        {
+            compDecision='Scissor';
+            console.log('computer decision is Scissor');
+        }
+        
+        if(compDecision==='Rock')
+        {
+            console.log('Tie');
+            result='Tie';
+        }
+        else if(compDecision==='Scissor')
+        {
+            console.log('you win!');
+            result='Win';
+        }
+        else if(compDecision==='Paper')
+        {
+
+            console.log('you lose!');
+            result='Lose';
+        }
+
+        
+        "
+      class="rock"
+    >
+      Rock
+    </button>
+    <button
+      onclick=" 
+        randomNumber=Math.random();
+        if(randomNumber>=0 && randomNumber< 1/3){
+         compDecision = 'Rock';
+         console.log('computer decision is Rock');
+            
+        }
+        else if(randomNumber>=1/3 && randomNumber<=2/3)
+        {
+            compDecision='Paper';
+            console.log('computer decision is paper');
+        }
+        else if(randomNumber>=2/3 && randomNumber<1)
+        {
+            compDecision='Scissor';
+            console.log('computer decision is scissor');
+        }
+        
+     
+
+        if(compDecision==='Rock')
+        {
+            console.log('you Win!');
+            result='Win';
+        }
+        else if(compDecision==='Scissor')
+        {
+            console.log('you Lose!');
+            result='Lose';
+        }
+        else if(compDecision==='Paper')
+        {
+
+            console.log('Tie!');
+            result='Tie';
+        }
+
+        
+        "
+      class="paper"
+    >
+      Paper
+    </button>
+    <button
+      onclick=" 
+        randomNumber=Math.random();
+        if(randomNumber>=0 && randomNumber< 1/3){
+         compDecision = 'Rock';
+         console.log('computer decision is Rock');
+            
+        }
+        else if(randomNumber>=1/3 && randomNumber<=2/3)
+        {
+            compDecision='Paper';
+            console.log('computer decision is paper');
+        }
+        else if(randomNumber>=2/3 && randomNumber<1)
+        {
+            compDecision='Scissor';
+            console.log('computer decision is scissor');
+        }
+        
+     
+
+        if(compDecision==='Rock')
+        {
+            console.log('you Lose!');
+            result='Lose';
+        }
+        else if(compDecision==='Scissor')
+        {
+            console.log('Tie!');
+            result='Tie';
+        }
+        else if(compDecision==='Paper')
+        {
+
+            console.log(' you win!');
+            result='Win';
+        }
+
+        
+        "
+      class="scissor"
+    >
+      Scissor
+    </button>
+
+    <script>
+      let randomNumber;
+      let compDecision;
+      let result;
+    </script>
+  </body>
+</html>
