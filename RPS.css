@@ -1,8 +1,11 @@
+.container{
+    margin: 10rem;
+}
 .rock,
 .paper,
 .scissor {
-  width: 60px;
-  height: 25px;
+  width: 106px;
+  height: 40px;
 
   color: wheat;
   background-color: green;
@@ -11,5 +14,5 @@
   border-radius: 4px;
 
   cursor: grab;
-  margin: 15px;
+  margin: 10px;
 }
