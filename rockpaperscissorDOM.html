@@ -6,31 +6,77 @@
     <link rel="stylesheet" href="RPS.css" />
     <title>Rock-paper-scissor</title>
   </head>
+  <style>
+    body {
+      background-color: rgb(25, 25, 25);
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .title {
+      font-size: 25px;
+    }
+    .moves-img {
+      height: 100px;
+      width: auto;
+    }
+    .result {
+      font-size: 25px;
+      font-weight: bold;
+      margin-top: 50px;
+    }
+    .showscores {
+      margin-top: 60px;
+    }
+    .moves {
+    }
+  </style>
   <body>
     <div class="container">
-      <h2>Welcome to Rock Paper Scissor Game</h2>
+      <h2 class="title">Welcome to Rock Paper Scissor Game</h2>
       <p>1. Choose your move</p>
       <p>2. Copmputer will decide its move</p>
-      <button onclick="playGame('rock'); " class="rock">Rock</button>
-      <button onclick=" playGame('paper');" class="paper">Paper</button>
-      <button onclick=" playGame('scissor'); " class="scissor">Scissor</button>
+      <button onclick="playGame('rock'); " class="moves-button">
+        <img src="images/Rock.jpeg" class="moves-img" />
+      </button>
+      <button onclick=" playGame('paper');" class="moves-button">
+        <img src="images/Paper.jpeg" class="moves-img" />
+      </button>
+      <button onclick=" playGame('scissor'); " class="moves-button">
+        <img src="images/Scissor.jpeg" class="moves-img" />
+      </button>
+
+      <p class="result"></p>
+      <p class="moves"></p>
+      <p class="showscore"></p>
       <button onclick=" reset(); " class="reset">Reset</button>
     </div>
     <script>
-      const score = JSON.parse(localStorage.getItem("score"));
+      console.log(JSON.parse(localStorage.getItem("score")));
+      const score = JSON.parse(localStorage.getItem("score")) || {
+        wins: 0,
+        loses: 0,
+        tie: 0,
+      };
       let randomNumber;
       let compDecision = "";
       let result;
-
+      let playerMove = "";
+      let move = "";
+      updateScoreElement();
       function reset() {
-        
         score.wins = 0;
         score.loses = 0;
         score.tie = 0;
+
+        localStorage.removeItem("score");
+        updateScoreElement();
         console.log(
           `Reset Result ${score.wins} . ${score.loses} . ${score.tie} `
         );
       }
+
+      // gameResult();
+      // moves();
 
       function pickComputerMove() {
         randomNumber = Math.random();
@@ -47,7 +93,8 @@
         return compDecision;
       }
 
-      function playGame(playerMove) {
+      function playGame(move) {
+        playerMove = move;
         compDecision = pickComputerMove();
         if (playerMove === "rock") {
           if (compDecision === "Rock") {
@@ -91,12 +138,29 @@
         } else score.tie += 1;
 
         localStorage.setItem("score", JSON.stringify(score));
+        updateScoreElement();
 
-        alert(
-          `You selected ${playerMove} and computer decision is ${compDecision}. Game Result is ${result}
-          wins: ${score.wins} , Loses: ${score.loses},  Tie: ${score.tie}
-          `
-        );
+        document.querySelector(".result").innerHTML = `you ${result}`;
+
+        document.querySelector(
+          ".moves"
+        ).innerHTML = `you <img src="images/${playerMove}.jpeg" class="moves-button" /> - Computer
+        <img src="images/${compDecision.toLowerCase()}.jpeg" class="moves-button" />`;
+        // gameResult();
+        // moves();
+
+        // alert(
+        //   `You selected ${playerMove} and computer decision is ${compDecision}. Game Result is ${result}
+        //   wins: ${score.wins} , Loses: ${score.loses},  Tie: ${score.tie}
+
+        //   `
+        // );
+      }
+
+      function updateScoreElement() {
+        document.querySelector(
+          ".showscore"
+        ).innerHTML = `wins: ${score.wins} , Loses: ${score.loses},  Tie: ${score.tie}`;
       }
     </script>
   </body>
